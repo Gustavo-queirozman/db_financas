@@ -1,0 +1,23 @@
+/* Lógico_1: */
+
+CREATE TABLE usuario (
+    idUsuario INTEGER PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255),
+    celular VARCHAR(11),
+    email VARCHAR(256),
+    senha VARCHAR(255),
+    token VARCHAR(255)
+);
+
+CREATE TABLE historico_financa (
+    idFinanca INTEGER PRIMARY KEY AUTO_INCREMENT,
+    tipo CHAR(7),
+    valor DOUBLE,
+    data DATETIME,
+    fkUsuario INTEGER
+);
+ 
+ALTER TABLE historico_financa ADD CONSTRAINT FK_historico_financa_2
+    FOREIGN KEY (fkUsuario)
+    REFERENCES usuario (idUsuario)
+    ON DELETE CASCADE;
